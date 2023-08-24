@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+    
+.success-message, .error-message {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+    
+.success-message {
+    color: green;
+}
+    
+.error-message {
+    color: red;
+}
+    
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+    
+form {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+    
+.game-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+    
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+    
+input[type="submit"] {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+    
+input[type="submit"]:hover {
+    background-color: #0074A0;
+}
+    
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+    
+.button-container a {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+}
+    
+.button-container a:hover {
+    background-color: #0074A0;
+}
+    
+    

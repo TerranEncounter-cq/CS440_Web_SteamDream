@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+	<h1>Login Page</h1>
+	{% if error_message %}
+		<div class="error-message">{{ error_message }}</div>
+	{% endif %}
+	{% if success_message %}
+		<div class="success-message">{{ success_message }}</div>
+	{% endif %}
+	<form action="{{ url_for('login') }}" method="post">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br><br>
+		<div class="button-container">
+			<input type="submit" value="Login">
+		</div>
+	</form>
+	<form action="{{ url_for('createAccount') }}" method="post">
+		<input type="hidden" id="username_hidden" name="username">
+		<input type="hidden" id="password_hidden" name="password">
+		<div class="button-container">
+			<input type="submit" value="Register" onclick="submitForm()">
+		</div>
+	</form>
+	<script>
+		function submitForm() {
+			var username_input = document.getElementById("username");
+			var password_input = document.getElementById("password");
+			var username_hidden = document.getElementById("username_hidden");
+			var password_hidden = document.getElementById("password_hidden");
+			username_hidden.value = username_input.value;
+			password_hidden.value = password_input.value;
+		}
+	</script>
+</body>
+</html>

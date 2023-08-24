@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='games.css') }}">
+    {% if error_message %}
+        <script>
+            alert("{{ error_message }}");
+        </script>
+    {% endif %}
+    <title>Add Games</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Add Games</h1>
+        <a href="{{ url_for('changePassword') }}">Change Password</a>
+        <a href="{{ url_for('currentGameList') }}">Show Current Game List</a>
+    </div>
+    <div class="button-container">
+        <form method="get">
+            <button type="submit" formaction="{{ url_for('searchGames') }}">Search for Games</button>
+            <button type="submit" formaction="{{ url_for('recommendedGames') }}">Find Recommended Games</button>
+        </form>
+    </div>
+    
+    <form action="{{ url_for('addGames') }}" method="post">
+        {% for game in games %}
+            <div class="game-container">
+                <input type="checkbox" id="{{ game.id }}" name="game_ids[]" value="{{ game.id }}">
+                <label for="{{ game.id }}">{{ game.name }}</label>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Add Selected Games">
+    </form>
+</body>
+</html>

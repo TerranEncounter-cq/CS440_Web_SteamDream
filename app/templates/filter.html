@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Filter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='filter.css') }}">
+</head>
+<body>
+    <h1>Game Filter</h1>
+    <form id="game-filter" action="/searchGames" method="post">
+        <fieldset>
+            <legend>Genres</legend>
+            <label><input type="checkbox" name="indie" value="indie"> Indie</label>
+            <label><input type="checkbox" name="action" value="action"> Action</label>
+            <label><input type="checkbox" name="adventure" value="adventure"> Adventure</label>
+            <label><input type="checkbox" name="casual" value="casual"> Casual</label>
+            <label><input type="checkbox" name="strategy" value="strategy"> Strategy</label>
+            <label><input type="checkbox" name="rpg" value="rpg"> RPG</label>
+            <label><input type="checkbox" name="simulation" value="simulation"> Simulation</label>
+            <label><input type="checkbox" name="sports" value="sports"> Sports</label>
+            <label><input type="checkbox" name="racing" value="racing"> Racing</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Max Price</legend>
+            <input type="text" name="max-price" placeholder="Enter max price">
+        </fieldset>
+
+        <fieldset>
+            <legend>Platforms</legend>
+            <label><input type="checkbox" name="platform" value="pc"> Available on PC</label>
+            <label><input type="checkbox" name="platform" value="mac"> Available on Mac</label>
+            <label><input type="checkbox" name="platform" value="windows"> Available on Windows</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Game Name</legend>
+            <input type="text" name="game-name" placeholder="Enter game name">
+        </fieldset>
+
+        <fieldset>
+            <legend>Price</legend>
+            <label><input type="checkbox" name="price" value="free"> Free</label>
+        </fieldset>
+
+        <button type="submit">Filter Games</button>
+    </form>
+</body>
+</html>

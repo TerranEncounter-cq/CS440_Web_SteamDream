@@ -1,0 +1,68 @@
+Games(
+  GameId: INT [PK],
+  GameName: VARCHAR(255),
+  ReleaseDate: VARCHAR(30),
+  RequiredAge: INT,
+  Metacritic: INT,
+  RecommendationCount: INT,
+  ControllerSupport:  BOOLEAN,
+  IsFree: BOOLEAN,
+  PurchaseAvail: BOOLEAN,
+  SubscriptionAvail: BOOLEAN,
+  PlatformWindows: BOOLEAN,
+  PlatformLinux: BOOLEAN,
+  PlatformMac: BOOLEAN,
+  PCRequirements: BOOLEAN,
+  LinuxRequirements: BOOLEAN,
+  MacRequirements: BOOLEAN,
+  SinglePlayer: BOOLEAN,
+  Multiplayer: BOOLEAN,
+  Coop: BOOLEAN,
+  MMO: BOOLEAN,
+  InAppPurchase: BOOLEAN,
+  IncludeLevelEditor: BOOLEAN,
+  VRSupport: BOOLEAN,
+  Currency: VARCHAR(50),
+  Price: REAL,
+  NumberOfOwners: INT,
+  EstimatePlayers: INT,
+  GameDescription: VARCHAR(2000),
+  HeaderImage: : VARCHAR(2000),
+  Reviews - VARCHAR(2000)
+)
+
+RecommendedGames(
+  GameId: INT [PK],
+  GameName: VARCHAR(255),
+  Metacritic: INT,
+  RecommendationCount: INT,
+  Price: REAL,
+  GameDescription: VARCHAR(2000),
+  HeaderImage:  VARCHAR(2000),
+  SimilarityScore: Real
+)
+
+UserLogin(
+  UserID: INT [PK],
+  Email: VARCHAR(255) [PK],
+  Password: VARCHAR(255)
+)
+
+UserInputGameList(
+  ListID: INT [PK],
+  UserID: INT [FK to UserLogin.UserID],
+  GameID: INT [FK to RecommendedGames.GameID]
+)
+
+Genre(
+  GameID: INT [PK],
+  Indie: BOOLEAN,
+  Action: BOOLEAN,
+  Adventure: BOOLEAN,
+  Casual: BOOLEAN,
+  Strategy: BOOLEAN,
+  RPG: BOOLEAN,
+  Simulation: BOOLEAN,
+  Sports: BOOLEAN,
+  Racing: BOOLEAN
+)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Games</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='recommended_games.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Recommended Games</h1>
+        <a href="{{ url_for('currentGameList') }}">Show Current Game List</a>
+    </div>
+
+    <form action="{{ url_for('addGames') }}" method="post">
+        {% for game in games %}
+            <div class="game-container">
+                <input type="checkbox" id="{{ game.id }}" name="game_ids[]" value="{{ game.id }}">
+                <label for="{{ game.id }}">{{ game.name }} - Similarity Score: <span class="similarity-score">{{ game.similarity }}%</span></label>
+            </div>
+        {% endfor %}
+        <input type="submit" name="add_games" value="Add Selected Games">
+        <button type="submit" name="delete_games" value="Delete Selected Games" formaction="{{ url_for('deleteRecommendedGames') }}">Delete Selected Games</button>
+    </form>
+
+</body>
+</html>
